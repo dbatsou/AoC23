@@ -13,21 +13,22 @@ public class Game
     /// Returns the game id if the game is possible, 0 if not
     /// </summary>
     public int ReturnValue => GameIsPossible ? Id : default;
-    public int Id => int.Parse(_input.Split(":")[0].Split(" ")[1]);
-    private int AvailableBlueCubes { get; init; }
-    public int RequestedBlueCubes { get; private set; }
-    public int RequestedRedCubes { get; private set; }
-    public int RequestedGreenCubes { get; private set; }
 
-    private readonly string _input;
-    private string[] _cubeSets => _input.Split(":")[1].Split(";");
+    private int Id => int.Parse(_input.Split(":")[0].Split(" ")[1]);
+    private int AvailableBlueCubes { get; init; }
+    private int RequestedBlueCubes { get; set; }
+    private int RequestedRedCubes { get; set; }
+    private int RequestedGreenCubes { get; set; }
     private int AvailableRedCubes { get; }
     private int AvailableGreenCubes { get; }
+
+    private readonly string _input;
+    private IEnumerable<string> _cubeSets => _input.Split(":")[1].Split(";");
     
     public Game(string input, int availableRedCubes = 12, int availableGreenCubes = 13, int availableBlueCubes = 14)
     {
-        //Available cubes as directed by the instructions 
         _input = input;
+        //Available cubes as directed by the instructions 
         AvailableRedCubes = availableRedCubes;
         AvailableGreenCubes = availableGreenCubes;
         AvailableBlueCubes = availableBlueCubes;
@@ -38,10 +39,6 @@ public class Game
     {
         foreach (var set in _cubeSets)
         {
-            //Game 79:
-            //3 green, 1 blue, 2 red;
-            //8 green, 1 blue, 2 red; 2
-            //blue, 1 red, 11 green
             foreach (var individualSet in set.Split(","))
             {
                 var extractedSetSplit = individualSet.Trim().Split(" ");
@@ -61,9 +58,8 @@ public class Game
                         break;
                 }
             }
-            
-            if(!GameIsPossible)
-                break;
+
+            if (!GameIsPossible) break;
         }
     }
 }
