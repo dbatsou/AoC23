@@ -25,7 +25,7 @@ public class Day01
     [MemberData(nameof(PartOneCases))]
     public void Day1_1(string input, string expected)
     {
-        var result = Solution01.GetResult_Part1(input);
+        var result = Solution.GetResult_Part1(input);
         Assert.Equal(expected, result.ToString());
     }
 
@@ -59,7 +59,7 @@ public class Day01
     [MemberData(nameof(PartTwoCases))]
     public void Day1_2(string input, string expected)
     {
-        var result = Solution01.GetResult_Part2(input);
+        var result = Solution.GetResult_Part2(input);
         Assert.Equal(expected, result.ToString());
 
     }
