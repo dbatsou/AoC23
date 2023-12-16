@@ -21,7 +21,7 @@ public static class Day02
 
     [Theory]
     [MemberData(nameof(simpleCaseSource))]
-    public static void Validate(List<TestCaseSimple> cases, int expected)
+    public static void Validate_Part1(List<TestCaseSimple> cases, int expected)
     {
         var sumOfIdsOfPossibleGames = 0;
 
@@ -36,6 +36,17 @@ public static class Day02
         
         Assert.Equal(expected,sumOfIdsOfPossibleGames);
 
+    }
+
+
+    [Theory]
+    [InlineData("Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green",48)] //4 red, 2 green, 6 blue, 48 expected power
+    [InlineData("Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue",12)] 
+    public static void Part2(string input,int expectedPower)
+    {
+        Game g = new Game(input);
+
+        Assert.Equal(expectedPower,g.FewestCubesPower);
     }
 
 }

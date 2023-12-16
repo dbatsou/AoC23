@@ -25,6 +25,12 @@ public class Game
     private readonly string _input;
     private IEnumerable<string> _cubeSets => _input.Split(":")[1].Split(";");
     
+    //Part 2 
+    private int FewestBlueCubes { get; set; }
+    private int FewestRedCubes { get; set; }
+    private int FewestGreenCubes { get; set; }
+    public int FewestCubesPower => FewestBlueCubes * FewestRedCubes * FewestGreenCubes;
+
     public Game(string input, int availableRedCubes = 12, int availableGreenCubes = 13, int availableBlueCubes = 14)
     {
         _input = input;
@@ -33,6 +39,7 @@ public class Game
         AvailableGreenCubes = availableGreenCubes;
         AvailableBlueCubes = availableBlueCubes;
         ExtractSelectedSets();
+        DetectFewestCubes();
     }
 
     private void ExtractSelectedSets()
@@ -61,5 +68,32 @@ public class Game
 
             if (!GameIsPossible) break;
         }
+    }
+
+    private void DetectFewestCubes()
+    {
+        foreach (var set in _cubeSets)
+        {
+            foreach (var individualSet in set.Split(","))
+            {
+                var extractedSetSplit = individualSet.Trim().Split(" ");
+                var count = int.Parse(extractedSetSplit[0]);
+                var colour = extractedSetSplit[1];
+
+                switch (colour)
+                {
+                    case "blue" when count > FewestBlueCubes:
+                        FewestBlueCubes = count;
+                        break;
+                    case "red" when count > FewestRedCubes:
+                        FewestRedCubes = count;
+                        break;
+                    case "green" when count > FewestGreenCubes:
+                        FewestGreenCubes = count;
+                        break;
+                }
+            }
+        }
+
     }
 }
