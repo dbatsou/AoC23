@@ -18,6 +18,9 @@
       <None Update="Input\02.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+      <None Update="Input\03.txt">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 
@@ -28,5 +31,11 @@
     <ItemGroup>
       <ProjectReference Include="..\AoC23.Helpers\AoC23.Helpers.csproj" />
     </ItemGroup>
+
+
+
+
+
+
 
 </Project>
