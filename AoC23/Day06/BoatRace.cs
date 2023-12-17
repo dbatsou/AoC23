@@ -1,34 +1,33 @@
+using System.Numerics;
+
 namespace AoC23.Day06;
 
 public class BoatRace
 {
-    private readonly int _duration;
-    private readonly int _record;
+    public readonly BigInteger Duration;
+    public readonly BigInteger Record;
+    public int WaysToWin => CalculateWaysToWin();
 
-    private BoatRace(int duration, int record)
+    private BoatRace(BigInteger duration, BigInteger record)
     {
-        _duration = duration;
-        _record = record;
+        Duration = duration;
+        Record = record;
     }
 
     private int CalculateWaysToWin()
     {
         var count = 0;
-        for (int i = 0; i <= _duration; i++)
+        for (int i = 0; i <= Duration; i++)
         {
-            var secondsPressed = i;
-            var availableSeconds = _duration - secondsPressed;
-            var distanceCovered = secondsPressed * availableSeconds;
+            var availableSeconds = Duration - i;
+            var distanceCovered = i * availableSeconds;
 
-            if (distanceCovered > _record)
+            if (distanceCovered > Record)
                 count++;
         }
 
         return count;
     }
-
-    public int WaysToWin => CalculateWaysToWin();
-
 
     public static IEnumerable<BoatRace> ExtractRaces(string[] input)
     {
@@ -38,5 +37,12 @@ public class BoatRace
         return timingsPerRace.Zip(recordPerRace, (timing, record) => new BoatRace(timing,record)).ToList();
     }
 
+    public static BoatRace ExtractRace(string[] input)
+    {
+        var timingsPerRace = BigInteger.Parse(input[0].Split(":")[1].Replace(" ", "").Trim());
+        var recordPerRace = BigInteger.Parse(input[1].Split(":")[1].Replace(" ", "").Trim());
+        return new BoatRace(timingsPerRace, recordPerRace);
+
+    }
     public static int CalculateWinningWaysProduct(IEnumerable<BoatRace> lst) => lst.Aggregate(1, (a, b) => a * b.WaysToWin);
 }
