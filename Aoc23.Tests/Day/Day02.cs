@@ -1,6 +1,8 @@
 using AoC23.Day02;
+using AoC23.Helpers;
+using Solution = AoC23.Day02.Solution;
 
-namespace Aoc23.Tests.Day;
+namespace AoC23.Tests.Day;
 
 public static class Day02
 {
@@ -47,6 +49,22 @@ public static class Day02
         Game g = new Game(input);
 
         Assert.Equal(expectedPower,g.FewestCubesPower);
+    }
+
+    [Fact]
+    public static void Solution_Part1()
+    {
+        var input = FileHelpers.GetLinesForInput(2);
+        var result = Solution.GetResult_Part1(input);
+        Assert.Equal(2476,result);
+    }
+    
+    [Fact]
+    public static void Solution_Part2()
+    {
+        var input = FileHelpers.GetLinesForInput(2);
+        var result = Solution.GetResult_Part2(input);
+        Assert.Equal(54911,result);
     }
 
 }

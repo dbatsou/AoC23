@@ -1,8 +1,7 @@
-using System.Text;
 using AoC23.Day01;
 using AoC23.Helpers;
 
-namespace Aoc23.Tests.Day;
+namespace AoC23.Tests.Day;
 
 public class Day01
 {
@@ -62,6 +61,22 @@ public class Day01
         var result = Solution.GetResult_Part2(input);
         Assert.Equal(expected, result.ToString());
 
+    }
+    
+    [Fact]
+    public static void Solution_Part1()
+    {
+        var input = FileHelpers.GetLinesForInput(1);
+        var result = Solution.GetResult_Part1(input);
+        Assert.Equal(55208,result);
+    }
+    
+    [Fact]
+    public static void Solution_Part2()
+    {
+        var input = FileHelpers.GetLinesForInput(1);
+        var result = Solution.GetResult_Part2(input);
+        Assert.Equal(54578,result);
     }
 
 }

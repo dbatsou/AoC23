@@ -12,13 +12,13 @@
       <None Update="Input\Day01\01.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Input\01.txt">
+      <None Update="Input\1.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Input\02.txt">
+      <None Update="Input\2.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-      <None Update="Input\04.txt">
+      <None Update="Input\4.txt">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
     </ItemGroup>

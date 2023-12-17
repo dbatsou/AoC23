@@ -1,6 +1,7 @@
 using AoC23.Day04;
+using AoC23.Helpers;
 
-namespace Aoc23.Tests.Day;
+namespace AoC23.Tests.Day;
 
 public class Day04
 {
@@ -17,6 +18,18 @@ public class Day04
         
         Assert.Equal(expected,c.CardPoints);
 
+        var gameId = int.Parse(input.Split(":")[0].Split(" ")[1]);
+        Assert.Equal(gameId,c.GameId);
+        Assert.Equal(expected,c.CardPoints);
+
     }
 
+    [Fact]
+    public void Solution()
+    {
+        var input = FileHelpers.GetLinesForInput(4);
+        var result = AoC23.Day04.Solution.GetResult_Part1(input);
+        
+        Assert.Equal(24542,result);
+    }
 }
