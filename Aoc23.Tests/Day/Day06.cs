@@ -10,8 +10,8 @@ public class Day06
 
     public Day06()
     {
-        _input = FileHelpers.GetLinesForInput(6);
-        _exampleInput = FileHelpers.GetLinesForInput(6, true);
+        _input = FileHelpers.GetPartOneInput(6);
+        _exampleInput = FileHelpers.GetPartOneInput(6, true);
         
     }
     
@@ -75,7 +75,7 @@ public class Day06
     [Fact]
     public void Part2_example()
     {
-        FileHelpers.GetLinesForInput(6,true);
+        FileHelpers.GetPartOneInput(6,true);
 
         var race = BoatRace.ExtractRace(_exampleInput);
         

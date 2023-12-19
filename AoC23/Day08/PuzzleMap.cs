@@ -31,7 +31,7 @@ public class PuzzleMap
 
     }
 
-    private BigInteger CalculateStepsToEnd()
+    protected virtual BigInteger CalculateStepsToEnd()
     {
         
         BigInteger stepTaken = 0;

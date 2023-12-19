@@ -27,7 +27,7 @@ public class Day04
     [Fact]
     public void Solution()
     {
-        var input = FileHelpers.GetLinesForInput(4);
+        var input = FileHelpers.GetPartOneInput(4);
         var result = AoC23.Day04.Solution.GetResult_Part1(input);
         
         Assert.Equal(24542,result);

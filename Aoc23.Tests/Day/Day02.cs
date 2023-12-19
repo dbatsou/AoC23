@@ -54,7 +54,7 @@ public static class Day02
     [Fact]
     public static void Solution_Part1()
     {
-        var input = FileHelpers.GetLinesForInput(2);
+        var input = FileHelpers.GetPartOneInput(2);
         var result = Solution.GetResult_Part1(input);
         Assert.Equal(2476,result);
     }
@@ -62,7 +62,7 @@ public static class Day02
     [Fact]
     public static void Solution_Part2()
     {
-        var input = FileHelpers.GetLinesForInput(2);
+        var input = FileHelpers.GetPartOneInput(2);
         var result = Solution.GetResult_Part2(input);
         Assert.Equal(54911,result);
     }
