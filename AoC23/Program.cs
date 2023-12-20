@@ -11,6 +11,7 @@ Console.WriteLine($"Day #2 - Part 1 - {AoC23.Day02.Solution.GetResult_Part1(File
 Console.WriteLine($"Day #2 - Part 2 - {AoC23.Day02.Solution.GetResult_Part1(FileHelpers.GetPartOneInput(2))}");
 
 Console.WriteLine($"Day #4 - Part 1 - {AoC23.Day04.Solution.GetResult_Part1(FileHelpers.GetPartOneInput(4))}");
+Console.WriteLine($"Day #4 - Part 2 - {AoC23.Day04.Solution.GetResult_Part2(FileHelpers.GetPartOneInput(4))}");
 
 Console.WriteLine($"Day #6 - Part 1 - {AoC23.Day06.Solution.GetResult_Part1(FileHelpers.GetPartOneInput(6))}");
 Console.WriteLine($"Day #6 - Part 2 - {AoC23.Day06.Solution.GetResult_Part2(FileHelpers.GetPartOneInput(6))}");
